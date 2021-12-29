@@ -3,6 +3,7 @@ import { Select,Typography,Row,Col,Avatar,Card } from 'antd'
 import moment from 'moment';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 import { useGetCryptosQuery } from '../services/cryptoApi';
+import Loading from './Loading';
 const {Text ,Title}=Typography;
 const {Option}=Select;
 const demoImage="http://coinrevolution.com/qp-content/uploads/2020/06/cryptonews.jpg"
@@ -12,7 +13,7 @@ const News = ({simplified}) => {
     
     const {data}=useGetCryptosQuery(100);
     // console.log(cryptoNews);
-    if(!cryptoNews?.value) return 'Loading .....';
+    if(!cryptoNews?.value) return <Loading/>;
 
     return (
         <Row gutter={[24,24]}>
